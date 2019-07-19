@@ -27,10 +27,10 @@ import okhttp3.Response;
  * Created by yzbkaka on 19-7-17.
  */
 
-public class VSAdapter extends ArrayAdapter<Match> {
+public class SoccerVSAdapter extends ArrayAdapter<Match> {
     private int resourceId;
 
-    public VSAdapter(Context context, int id, List<Match> objetcs){
+    public SoccerVSAdapter(Context context, int id, List<Match> objetcs){
         super(context,id,objetcs);
         resourceId = id;
     }

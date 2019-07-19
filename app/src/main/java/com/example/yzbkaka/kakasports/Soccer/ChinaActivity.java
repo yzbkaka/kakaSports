@@ -1,38 +1,36 @@
-package com.example.yzbkaka.kakasports.England;
+package com.example.yzbkaka.kakasports;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.yzbkaka.kakasports.R;
-
-
-public class EnglandActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener  {  //需要继承父类
+public class ChinaActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {  //需要继承父类
     private RadioGroup radioGroup;
     private RadioButton vs;
     private RadioButton grade;
     private ViewPager viewPager;
 
-    private EnglandFragmentAdapter englandFragmentAdapter;  //ViewPager的适配器
+    private SoccerFragmentAdapter soccerFragmentAdapter;  //ViewPager的适配器
 
     public static final int PAGE_ONE = 0;  //页面1
     public static final int PAGE_TWO = 1;  //页面2
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_england);
+        setContentView(R.layout.activity_german);
 
-        radioGroup = (RadioGroup)findViewById(R.id.radio_group);
-        vs = (RadioButton)findViewById(R.id.vs);
-        grade = (RadioButton)findViewById(R.id.grade);
-        viewPager = (ViewPager)findViewById(R.id.viewPager);
-        englandFragmentAdapter = new EnglandFragmentAdapter(getSupportFragmentManager());  //创建适配器实例
 
-        viewPager.setAdapter(englandFragmentAdapter);  //设置适配器
+        radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+        vs = (RadioButton) findViewById(R.id.vs);
+        grade = (RadioButton) findViewById(R.id.grade);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        soccerFragmentAdapter = new SoccerFragmentAdapter(getSupportFragmentManager());  //创建适配器实例
+
+        viewPager.setAdapter(soccerFragmentAdapter);  //设置适配器
         viewPager.setCurrentItem(0);  //设置页面1为主页面
         viewPager.addOnPageChangeListener(this);
         vs.setChecked(true);  //显示为主页面
@@ -51,8 +49,8 @@ public class EnglandActivity extends AppCompatActivity implements RadioGroup.OnC
 
     @Override
     public void onPageScrollStateChanged(int state) {
-        if(state == 2){  //state的状态有三个，0表示什么都没做，1正在滑动，2滑动完毕
-            switch(viewPager.getCurrentItem()){
+        if (state == 2) {  //state的状态有三个，0表示什么都没做，1正在滑动，2滑动完毕
+            switch (viewPager.getCurrentItem()) {
                 case PAGE_ONE:
                     vs.setChecked(true);
                     break;
@@ -74,5 +72,6 @@ public class EnglandActivity extends AppCompatActivity implements RadioGroup.OnC
                 break;
         }
 
-    }
+    }    
+
 }

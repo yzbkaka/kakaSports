@@ -1,19 +1,14 @@
-package com.example.yzbkaka.kakasports.England;
+package com.example.yzbkaka.kakasports;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import com.example.yzbkaka.kakasports.Match;
-import com.example.yzbkaka.kakasports.R;
-import com.example.yzbkaka.kakasports.VSAdapter;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -28,17 +23,17 @@ import okhttp3.Response;
  * Created by yzbkaka on 19-7-18.
  */
 
-public class EnglandVSFragment extends Fragment {
-    private ListView englandVSListView;  //显示赛程的listView
-    private List<Match> englandVSList;  //显示赛程的列表
-    private VSAdapter englandVSAdapter;  //ListView的适配器
-
+public class SoccerGradeFragment extends Fragment {
+    private ListView englandGradeListView;
+    private List<Match> englandGradeList;
+    private SoccerGradeAdapter englandSoccerGradeAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.england_vs,container,false);
-        englandVSListView = (ListView)view.findViewById(R.id.england_vs_view);
-        englandVSList = new ArrayList<>();
+        View view = inflater.inflate(R.layout.england_grade,container,false);
+        englandGradeListView = (ListView)view.findViewById(R.id.england_grade_view);
+        englandGradeList = new ArrayList<>();
+
 
 
         new Thread(new Runnable() {  //开启子线程，请求API
@@ -63,16 +58,9 @@ public class EnglandVSFragment extends Fragment {
             }
         }).start();
 
-        Match match1 = new Match();
+        englandSoccerGradeAdapter = new SoccerGradeAdapter(getContext(),R.layout.england_grade_item,englandGradeList);
+        englandGradeListView.setAdapter(englandSoccerGradeAdapter);
 
-        match1.setStartTime("1");
-        match1.setFirstTeam("2");
-        match1.setSecondTeam("3");
-        match1.setVsGrade("4");
-        englandVSList.add(match1);
-
-        englandVSAdapter = new VSAdapter(getContext(),R.layout.england_vs_item,englandVSList);  //设置子项布局
-        englandVSListView.setAdapter(englandVSAdapter);  //设置ListView的适配器
         return view;
     }
 
@@ -80,17 +68,23 @@ public class EnglandVSFragment extends Fragment {
     public void parseJSONWithJSONObject(String responseData)  {
         try{
             JSONObject jsonObject = new JSONObject(responseData);  //得到解析出来的json
-            JSONArray jsonArray = jsonObject.getJSONArray("saicheng1");  //得到"saicheng1"数组里面的内容
+            JSONObject result = jsonObject.getJSONObject("result");
+            JSONObject views = result.getJSONObject("views");
+            JSONArray jsonArray = views.getJSONArray("jifenbangP");  //得到jifenbang数组里面的内容
+            Log.d("jfbbbbb:", String.valueOf(jsonArray.length()));
             for(int i = 0;i<jsonArray.length();i++){
                 Match match = new Match();
                 JSONObject myJsonObject = jsonArray.getJSONObject(i);  //开始遍历
-                match.setStartTime(myJsonObject.getString("c2"));
-                match.setFirstTeam(myJsonObject.getString("c4T1"));
-                match.setSecondTeam(myJsonObject.getString("c4T2"));
-                match.setVsGrade(myJsonObject.getString("c4R"));
-                englandVSList.add(match);
+                match.setRank(myJsonObject.getString("c1"));
+                match.setName(myJsonObject.getString("c2"));
+                match.setSumMatch(myJsonObject.getString("c3"));
+                match.setWin(myJsonObject.getString("c41"));
+                match.setEqual(myJsonObject.getString("c42"));
+                match.setSumGrade(myJsonObject.getString("c6"));
+                match.setLose(myJsonObject.getString("c43"));
+                englandGradeList.add(match);
+                englandSoccerGradeAdapter.notifyDataSetChanged();
             }
-
         }catch (Exception e){
             e.printStackTrace();
         }

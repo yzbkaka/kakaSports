@@ -16,10 +16,10 @@ import java.util.List;
  * Created by yzbkaka on 19-7-18.
  */
 
-public class GradeAdapter extends ArrayAdapter<Match> {
+public class SoccerGradeAdapter extends ArrayAdapter<Match> {
     private int resourceId;
 
-    public GradeAdapter(Context context, int id, List<Match> objetcs){
+    public SoccerGradeAdapter(Context context, int id, List<Match> objetcs){
         super(context,id,objetcs);
         resourceId = id;
     }

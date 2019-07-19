@@ -1,4 +1,4 @@
-package com.example.yzbkaka.kakasports.England;
+package com.example.yzbkaka.kakasports;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,16 +9,16 @@ import android.view.ViewGroup;
  * Created by yzbkaka on 19-7-18.
  */
 
-public class EnglandFragmentAdapter extends FragmentPagerAdapter {  //切换页适配器
+public class SoccerFragmentAdapter extends FragmentPagerAdapter {  //切换页适配器
     private int PAGE_COUNT = 2;  //切换页面的数量
-    private EnglandVSFragment englandVSFragment;  //赛程的碎片
-    private EnglandGradeFragment englandGradeFragment;  //积分榜的碎片
+    private SoccerVSFragment soccerVSFragment;  //赛程的碎片
+    private SoccerGradeFragment soccerGradeFragment;  //积分榜的碎片
 
 
-    public EnglandFragmentAdapter(FragmentManager fm) {
+    public SoccerFragmentAdapter(FragmentManager fm) {
         super(fm);
-        englandVSFragment = new EnglandVSFragment();
-        englandGradeFragment = new EnglandGradeFragment();
+        soccerVSFragment = new SoccerVSFragment();
+        soccerGradeFragment = new SoccerGradeFragment();
     }
 
     @Override
@@ -37,10 +37,10 @@ public class EnglandFragmentAdapter extends FragmentPagerAdapter {  //切换页�
         Fragment fragment = null;
         switch (position) {
             case EnglandActivity.PAGE_ONE:  //如果是页面1
-                fragment = englandVSFragment;
+                fragment = soccerVSFragment;
                 break;
             case EnglandActivity.PAGE_TWO:  //如果是页面2
-                fragment = englandGradeFragment;
+                fragment = soccerGradeFragment;
                 break;
         }
         return fragment;

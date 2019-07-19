@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.yzbkaka.kakasports.England.EnglandActivity;
-
 public class SoccerActivity extends AppCompatActivity {
     private Button england;
     private Button italy;
@@ -15,6 +13,15 @@ public class SoccerActivity extends AppCompatActivity {
     private Button german;
     private Button france;
     private Button china;
+
+    public static int nation;
+
+    /*public static int ENGLAND = 0;
+    public static int ITALY = 1;
+    public static int SPAIN = 2;
+    public static int GRMAN = 3;
+    public static int FRANCE = 4;
+    public static int CHINA = 5;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +38,16 @@ public class SoccerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SoccerActivity.this,EnglandActivity.class);
+                nation = 0;
                 startActivity(intent);
             }
         });
 
-        /*italy.setOnClickListener(new View.OnClickListener() {
+        italy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,);
+                Intent intent = new Intent(SoccerActivity.this, ItalyActivity.class);
+                nation = 1;
                 startActivity(intent);
             }
         });
@@ -46,7 +55,8 @@ public class SoccerActivity extends AppCompatActivity {
         spain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,);
+                Intent intent = new Intent(SoccerActivity.this,SpainActivity.class);
+                nation = 2;
                 startActivity(intent);
             }
         });
@@ -54,7 +64,8 @@ public class SoccerActivity extends AppCompatActivity {
         german.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,);
+                Intent intent = new Intent(SoccerActivity.this,GermanActivity.class);
+                nation = 3;
                 startActivity(intent);
             }
         });
@@ -62,7 +73,8 @@ public class SoccerActivity extends AppCompatActivity {
         france.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,);
+                Intent intent = new Intent(SoccerActivity.this,FranceActivity.class);
+                nation = 4;
                 startActivity(intent);
             }
         });
@@ -70,10 +82,11 @@ public class SoccerActivity extends AppCompatActivity {
         china.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,);
+                Intent intent = new Intent(SoccerActivity.this,ChinaActivity.class);
+                nation = 5;
                 startActivity(intent);
             }
-        });*/
+        });
 
     }
 }
