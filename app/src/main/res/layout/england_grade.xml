@@ -69,17 +69,22 @@
     </LinearLayout>
 
     <View
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:layout_marginTop="5dp"
         android:background="#888"/>
 
-    <ListView
-        android:id="@+id/england_grade_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+  <android.support.v4.widget.SwipeRefreshLayout
+      android:id="@+id/soccer_grade_refresh"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
-    </ListView>
+      <ListView
+          android:id="@+id/england_grade_view"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+      </ListView>
 
+  </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

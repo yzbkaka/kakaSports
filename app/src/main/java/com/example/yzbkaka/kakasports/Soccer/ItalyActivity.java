@@ -1,4 +1,4 @@
-package com.example.yzbkaka.kakasports;
+package com.example.yzbkaka.kakasports.Soccer;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +7,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.yzbkaka.kakasports.R;
-import com.example.yzbkaka.kakasports.SoccerFragmentAdapter;
-import static com.example.yzbkaka.kakasports.SoccerActivity.nation;
 
 public class ItalyActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
     private RadioGroup radioGroup;

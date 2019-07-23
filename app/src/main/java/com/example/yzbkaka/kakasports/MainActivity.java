@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.yzbkaka.kakasports.Basketball.BasketballActivity;
+import com.example.yzbkaka.kakasports.Soccer.SoccerActivity;
+
 public class MainActivity extends AppCompatActivity {
     private Button soccer;
     private Button basketball;

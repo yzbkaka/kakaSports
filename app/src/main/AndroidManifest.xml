@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yzbkaka.kakasports">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,9 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SoccerActivity" />
-        <activity android:name=".BasketballActivity" />
-        <activity android:name=".England.EnglandActivity"></activity>
+        <activity android:name=".Soccer.SoccerActivity" />
+        <activity android:name=".Basketball.BasketballActivity" />
+        <activity android:name=".Soccer.EnglandActivity" />
+        <activity android:name=".Soccer.ItalyActivity" />
+        <activity android:name=".Soccer.SpainActivity" />
+        <activity android:name=".Soccer.GermanActivity" />
+        <activity android:name=".Soccer.FranceActivity" />
+        <activity android:name=".Soccer.ChinaActivity" />
+        <activity android:name=".Soccer.LinkActivity"></activity>
     </application>
 
 </manifest>

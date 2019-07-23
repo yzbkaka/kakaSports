@@ -1,4 +1,4 @@
-package com.example.yzbkaka.kakasports;
+package com.example.yzbkaka.kakasports.Soccer;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.yzbkaka.kakasports.SoccerFragmentAdapter;
 import com.example.yzbkaka.kakasports.R;
-import static com.example.yzbkaka.kakasports.SoccerActivity.nation;
 
 
 public class EnglandActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener  {  //需要继承父类

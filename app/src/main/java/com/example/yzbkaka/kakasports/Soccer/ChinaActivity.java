@@ -1,10 +1,12 @@
-package com.example.yzbkaka.kakasports;
+package com.example.yzbkaka.kakasports.Soccer;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.example.yzbkaka.kakasports.R;
 
 public class ChinaActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {  //需要继承父类
     private RadioGroup radioGroup;
@@ -72,6 +74,6 @@ public class ChinaActivity extends AppCompatActivity implements RadioGroup.OnChe
                 break;
         }
 
-    }    
+    }
 
 }

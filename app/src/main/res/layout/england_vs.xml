@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="60dp"
             android:textColor="#000"
             android:textSize="18dp"
             android:text="主队" />
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="28dp"
+            android:layout_marginLeft="45dp"
             android:textColor="#000"
             android:textSize="18dp"
             android:text="比分" />
@@ -41,23 +41,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="45dp"
             android:textColor="#000"
             android:textSize="18dp"
             android:text="客队" />
 
     </LinearLayout>
-
-
-<!--    <TextView
-        android:id="@+id/match_number1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="160dp"
-        android:text="第18轮"
-        android:textSize="15dp"
-        android:textColor="#000"/>-->
 
 
     <View
@@ -66,12 +55,68 @@
         android:layout_marginTop="5dp"
         android:background="#888"/>
 
-    <ListView
-        android:id="@+id/england_vs_view"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/soccer_vs_refresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </ListView>
+        android:layout_height="match_parent">
 
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/number_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#000"
+                    android:layout_marginLeft="150dp"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#888"/>
+
+                <ListView
+                    android:id="@+id/england_vs_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="310dp">
+                </ListView>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#888"/>
+
+                <TextView
+                    android:id="@+id/number_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#000"
+                    android:layout_marginLeft="150dp"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#888"/>
+
+                <ListView
+                    android:id="@+id/england_vs_view_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="330dp">
+                </ListView>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

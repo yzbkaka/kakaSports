@@ -1,24 +1,19 @@
-package com.example.yzbkaka.kakasports;
+package com.example.yzbkaka.kakasports.Soccer;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.example.yzbkaka.kakasports.Match;
+import com.example.yzbkaka.kakasports.R;
 
-import java.io.IOException;
+
 import java.util.List;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 
 
@@ -43,6 +38,7 @@ public class SoccerVSAdapter extends ArrayAdapter<Match> {
         TextView firstTeam = (TextView)view.findViewById(R.id.first_team);  //主队
         TextView secondTeam = (TextView)view.findViewById(R.id.second_team);  //客队
         TextView vsGrade = (TextView)view.findViewById(R.id.match_grade);  //比分
+        //WebView webView = (WebView)view.findViewById(R.id.webview);  //浏览器
 
         startTime.setText(match.getStartTime());
         firstTeam.setText(match.getFirstTeam());

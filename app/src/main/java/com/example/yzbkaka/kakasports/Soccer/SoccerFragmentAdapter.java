@@ -1,4 +1,4 @@
-package com.example.yzbkaka.kakasports;
+package com.example.yzbkaka.kakasports.Soccer;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

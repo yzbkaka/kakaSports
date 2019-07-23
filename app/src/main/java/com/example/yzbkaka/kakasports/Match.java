@@ -16,6 +16,7 @@ public class Match {
     String equal;
     String lose;
     String sumGrade;
+    String link;
 
 
     public void setRank(String rank) {
@@ -62,6 +63,10 @@ public class Match {
         this.secondTeam = secondTeam;
     }
 
+    public void setLink(String link) {
+        this.link = link;
+    }
+
     public String getStartTime() {
         return startTime;
     }
@@ -104,5 +109,9 @@ public class Match {
 
     public String getSumGrade() {
         return sumGrade;
+    }
+
+    public String getLink() {
+        return link;
     }
 }
