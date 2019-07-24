@@ -13,17 +13,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginLeft="120dp"
             android:text="kakaSports"
             android:textSize="25dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginLeft="120dp"/>
+            android:textColor="#000" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="#fff"
         android:layout_margin="50dp">
 
         <RelativeLayout
@@ -41,9 +41,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="足球"
+                android:text="足球赛事"
                 android:textSize="13dp"
-                android:layout_marginLeft="124dp"
+                android:layout_marginLeft="110dp"
                 android:layout_marginTop="108dp"/>
         </RelativeLayout>
     </LinearLayout>
@@ -52,7 +52,6 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="#fff"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp">
 
@@ -71,9 +70,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="篮球"
+                android:text="NBA赛事"
                 android:textSize="13dp"
-                android:layout_marginLeft="122dp"
+                android:layout_marginLeft="110dp"
                 android:layout_marginTop="115dp"/>
         </RelativeLayout>
     </LinearLayout>

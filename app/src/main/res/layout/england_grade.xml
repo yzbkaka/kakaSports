@@ -8,12 +8,13 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="4dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:text="排名"
             android:textSize="15dp"
             android:textColor="#000"/>
@@ -22,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:textSize="15dp"
             android:text="球队"
             android:textColor="#000"/>
@@ -31,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
             android:textSize="15dp"
             android:text="场次"
             android:textColor="#000"/>
@@ -39,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
             android:textSize="15dp"
             android:text="胜"
             android:textColor="#000"/>
@@ -47,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
             android:textSize="15dp"
             android:text="平"
             android:textColor="#000"/>
@@ -55,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
             android:textSize="15dp"
             android:text="负"
             android:textColor="#000"/>
@@ -63,6 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
             android:textSize="15dp"
             android:text="积分"
             android:textColor="#000"/>

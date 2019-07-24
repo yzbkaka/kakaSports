@@ -1,8 +1,10 @@
 package com.example.yzbkaka.kakasports.Soccer;
 
+import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -23,6 +25,7 @@ public class ItalyActivity extends AppCompatActivity implements RadioGroup.OnChe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_italy);
+        setLightMode();
 
 
         radioGroup = (RadioGroup)findViewById(R.id.radio_group);
@@ -72,6 +75,12 @@ public class ItalyActivity extends AppCompatActivity implements RadioGroup.OnChe
                 viewPager.setCurrentItem(PAGE_TWO);
                 break;
         }
+    }
 
+
+    private void setLightMode(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
     }
 }

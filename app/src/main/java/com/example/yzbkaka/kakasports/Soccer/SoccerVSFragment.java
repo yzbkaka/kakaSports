@@ -2,6 +2,7 @@ package com.example.yzbkaka.kakasports.Soccer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
@@ -215,4 +217,12 @@ public class SoccerVSFragment extends Fragment {
         progressDialog.dismiss();
 
     }
+
+
+    private void setLightMode(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+           getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+    }
+
 }

@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="575dp">
     </android.support.v4.view.ViewPager>
-    
+
+
 
     <RadioGroup
         android:id="@+id/radio_group"
@@ -17,6 +18,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_marginTop="10dp">
+
         
         <RadioButton
             android:id="@+id/vs"

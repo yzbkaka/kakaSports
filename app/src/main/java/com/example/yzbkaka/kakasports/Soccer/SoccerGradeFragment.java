@@ -1,6 +1,6 @@
 package com.example.yzbkaka.kakasports.Soccer;
 
-import android.app.ProgressDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -129,5 +129,12 @@ public class SoccerGradeFragment extends Fragment {
                 }
             }
         }).start();
+    }
+
+
+    private void setLightMode(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
     }
 }

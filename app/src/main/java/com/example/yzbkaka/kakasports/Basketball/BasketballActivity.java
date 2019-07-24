@@ -1,7 +1,11 @@
 package com.example.yzbkaka.kakasports.Basketball;
 
+import android.app.ProgressDialog;
+import android.os.Build;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import com.example.yzbkaka.kakasports.Match;
@@ -23,15 +27,43 @@ public class BasketballActivity extends AppCompatActivity {
     private List<Match> basketballVSList;
     private BasketballVSAdapter basketballVSAdapter;  //ListView的适配器
     private String responseData;
+    private SwipeRefreshLayout basketballRefresh;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basketball);
+        setLightMode();
 
         basketballVSListView = (ListView)findViewById(R.id.nba_listview);
         basketballVSList = new ArrayList<>();
+        basketballRefresh = (SwipeRefreshLayout)findViewById(R.id.basketball_refresh);
+        basketballRefresh.setColorSchemeResources(R.color.colorPrimary);
 
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                showProgressDialog();
+            }
+        });
+
+        sendOkHttpToGetJSON();
+
+        basketballRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                sendOkHttpToGetJSON();
+            }
+        });
+
+
+        basketballVSAdapter = new BasketballVSAdapter(this,R.layout.basketball_vs_item,basketballVSList);
+        basketballVSListView.setAdapter(basketballVSAdapter);
+    }
+
+
+    public void sendOkHttpToGetJSON(){
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -53,10 +85,6 @@ public class BasketballActivity extends AppCompatActivity {
                 }
             }
         }).start();
-
-
-        basketballVSAdapter = new BasketballVSAdapter(this,R.layout.basketball_vs_item,basketballVSList);
-        basketballVSListView.setAdapter(basketballVSAdapter);
     }
 
 
@@ -68,7 +96,6 @@ public class BasketballActivity extends AppCompatActivity {
             JSONObject tr = list.getJSONObject(1);  //得到list数组中的第一个元素
             JSONArray jsonArray = tr.getJSONArray("tr");  //得到tr数组中的每一个元素
 
-
             for(int i = 0;i<jsonArray.length();i++){
                 Match match = new Match();
                 JSONObject myJsonObject = jsonArray.getJSONObject(i);
@@ -79,11 +106,35 @@ public class BasketballActivity extends AppCompatActivity {
                 basketballVSList.add(match);
                 basketballVSAdapter.notifyDataSetChanged();
             }
-
+            closeProgressDialog();
+            basketballRefresh.setRefreshing(false);
         }catch(Exception e){
             e.printStackTrace();
         }
     }
 
 
+    public void showProgressDialog(){
+        if(progressDialog == null){
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setCancelable(true);
+            progressDialog.setMessage("loading...");
+            progressDialog.setTitle("kakaSports");
+            progressDialog.show();
+        }
+    }
+
+
+    public void closeProgressDialog(){
+        if(progressDialog != null){
+            progressDialog.dismiss();
+        }
+    }
+
+
+    private void setLightMode(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+    }
 }
