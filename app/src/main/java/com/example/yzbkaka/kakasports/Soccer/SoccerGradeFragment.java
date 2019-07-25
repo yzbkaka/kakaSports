@@ -4,10 +4,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import com.example.yzbkaka.kakasports.Match;
@@ -37,10 +39,12 @@ public class SoccerGradeFragment extends Fragment {
     private SoccerGradeAdapter soccerGradeAdapter;
     private String league;  //联赛名称
     private SwipeRefreshLayout swipeRefreshLayout;
+    private int count = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.england_grade,container,false);
+        setLightMode();
         gradeListView = (ListView)view.findViewById(R.id.england_grade_view);
         gradeList = new ArrayList<>();
         swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.soccer_grade_refresh);
@@ -70,12 +74,16 @@ public class SoccerGradeFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                gradeList.clear();
+                gradeListView.removeAllViews();
                 sendOkHttpToGetJSON();
             }
         });
 
-        soccerGradeAdapter = new SoccerGradeAdapter(getContext(),R.layout.england_grade_item,gradeList);
-        gradeListView.setAdapter(soccerGradeAdapter);
+        if(count == 0){
+            soccerGradeAdapter = new SoccerGradeAdapter(getContext(),R.layout.england_grade_item,gradeList);
+            gradeListView.setAdapter(soccerGradeAdapter);
+        }
 
         return view;
     }
